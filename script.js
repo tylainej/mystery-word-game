@@ -6,10 +6,13 @@ let chosenWord = words[random];
 let underscores = [];
 //create underscores based on length of word
 function Underscores () {
-
+let newEl = document.querySelector('#underScore');
+let typeField = document.createElement('div');
+typeField.className = "guessInput";
+newEl.appendChild(typeField);
     for(let i = 0; i < chosenWord.length; i += 1){
- 
-    underscores.push('_');
+ console.log(chosenWord);
+    underscores.push(chosenWord[typeField]);
 }
 return underscores;
 
