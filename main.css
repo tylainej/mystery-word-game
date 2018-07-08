@@ -30,6 +30,10 @@ h1{
     border-radius: 40px;
     color: #ddd;
     background-color: navy;
+    display: block;
+}
+#bottomUnderScore{
+    font-size: 24pt;
 }
 /* border around the 2 smaller divs */
 section{
