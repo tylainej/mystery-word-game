@@ -2,50 +2,60 @@
 const words = ['Transformers','tuesday','wednesday','thursday','friday'];
 //choose word randomly
 let random = Math.floor(Math.random() * words.length);
-const chosenWord = words[random];
+const chosenWord = words[random].toUpperCase();
 
-//hide selected letter and appends the alphabet to a new div
-function selectedLetter(selected){
-    for(let i = 0; i < chosenWord.length; i += 1){
-        if(selected[i] === chosenWord.value){
-            selected.style.visibility = 'hidden';     
-        let b = document.querySelector('#abc');
-            selected.style.visibility = 'visible';
-            b.appendChild(selected);
-        } 
-    }   
-}
+
 
 //creates a div for each letter
+let randomWord = document.querySelector('#randomWord');
+
 function Phrase(){
-    let randomWord = document.querySelector('#randomWord');
     for(let i = 0; i < chosenWord.length; i += 1){
         let div = document.createElement('div');
-         div.className ='letter'+i;
+         div.className = 'letter' + i;
         div.style.display = "inline";
-        div.style.borderBottom = "solid 2px white";
+        div.style.borderBottom = "solid 3px white";
         div.style.padding = "5px";
         div.style.margin = "5px";
         div.style.background = "navy";
+        // div.style.height = "30vh";
+        // div.style.width = "80vh";
 
 
-        div.innerHTML = chosenWord[i];
+        //div.innerHTML = chosenWord[i];
         randomWord.appendChild(div);
     }
 }
 Phrase();
-//create underscores for the phrase
-function Underscores () {
+
+//hide selected letter and appends the alphabet to a new div
+function selectedLetter(clicked){
+    let letters = clicked.innerHTML;
+    let found = chosenWord.indexOf(letters);
     for(let i = 0; i < chosenWord.length; i += 1){
-        if(chosenWord[i] === ' '){
-            document.querySelector('#bottomUnderScore').innerHTML += '&nbsp';
-//&nbsp creates consecutive spaces
-        } else { 
-            document.querySelector('#bottomUnderScore').innerHTML += ' _ ';
-        };
-    };
+        if(clicked[i] === chosenWord[found]){
+            clicked.style.visibility = 'hidden';     
+        let b = document.querySelector('#abc');
+            clicked.style.visibility = 'visible';
+            b.appendChild(clicked);
+        } else { clicked.style.visibility = 'hidden';}
+        if(found >= 0){
+            document.querySelector('.letter'+ i).innerHTML = letters;
+        } 
+    }   
 }
-Underscores();
+//create underscores for the phrase
+// function Underscores () {
+//     for(let i = 0; i < chosenWord.length; i += 1){
+//         if(chosenWord[i] === ' '){
+//             document.querySelector('#bottomUnderScore').innerHTML += '&nbsp';
+// //&nbsp creates consecutive spaces
+//         } else { 
+//             document.querySelector('#bottomUnderScore').innerHTML += ' _ ';
+//         };
+//     };
+// }
+// Underscores();
 //get underscores to show in html
 // let x = document.querySelector('#randomWord').innerHTML = underscores;
 
@@ -66,12 +76,17 @@ Underscores();
 //     //  }
     
 // }
-document.addEventListener('keypress', (evt)=>{
-    let char = String.fromCharCode(event.keyCode);
-        for(let i = 0; i < underscores.length; i += 1){
-            if(chosenWord.indexOf(char) > -1){
 
-        }
+let d = document.querySelector('#randomWord');
+d.addEventListener('keypress', (char)=>{
+    let char = String.fromCharCode(event.keyCode);
+
+    let alph = char.innerHTML;
+    let i = chosenWord.indexOfaa(alph);
+        //for( i = 0; i < underscores.length; i += 1){
+            if(i >= 0){
+document.querySelector('.letter' + i).innerHTML = alph;
+        //}
     }
 });
 
