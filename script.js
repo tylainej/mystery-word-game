@@ -7,7 +7,7 @@ const chosenWord = words[random].toUpperCase();
 
 
 //creates a div for each letter
-let randomWord = document.querySelector('#randomWord');
+const randomWord = document.querySelector('#randomWord');
 
 function Phrase(){
     for(let i = 0; i < chosenWord.length; i += 1){
@@ -27,23 +27,26 @@ function Phrase(){
     }
 }
 Phrase();
-
 //hide selected letter and appends the alphabet to a new div
 function selectedLetter(clicked){
     let letters = clicked.innerHTML;
     let found = chosenWord.indexOf(letters);
-    for(let i = 0; i < chosenWord.length; i += 1){
+    let i;
+    for( i = 0; i < chosenWord.length; i += 1){
         if(clicked[i] === chosenWord[found]){
             clicked.style.visibility = 'hidden';     
         let b = document.querySelector('#abc');
             clicked.style.visibility = 'visible';
             b.appendChild(clicked);
-        } else { clicked.style.visibility = 'hidden';}
-        if(found >= 0){
-            document.querySelector('.letter'+ i).innerHTML = letters;
-        } 
-    }   
+        } else { clicked.style.visibility = 'hidden';
+            }
+            if(found >= 0){
+         document.querySelector('.letter' + i).innerHTML = letters;
+    }
+           
+        }
 }
+    
 //create underscores for the phrase
 // function Underscores () {
 //     for(let i = 0; i < chosenWord.length; i += 1){
@@ -77,20 +80,30 @@ function selectedLetter(clicked){
     
 // }
 
-let d = document.querySelector('#randomWord');
-d.addEventListener('keypress', (char)=>{
-    let char = String.fromCharCode(event.keyCode);
-
-    let alph = char.innerHTML;
-    let i = chosenWord.indexOfaa(alph);
-        //for( i = 0; i < underscores.length; i += 1){
-            if(i >= 0){
-document.querySelector('.letter' + i).innerHTML = alph;
-        //}
+//let d = document.querySelector('#randomWord');
+document.addEventListener('keypress', (evt)=>{
+    let char = String.fromCharCode(event.keyCode).toUpperCase();
+   //converts the character that was pressed to a letter
+    let found = chosenWord.indexOf(char);
+    //gets the index position of that character 
+        for( let i = 0; i < chosenWord.length; i += 1){
+    //loops through the chosenword to find the position of the characters
+            if(found[i] === char[chosenWord] && found >= 0){
+    //start at 0 to find the index of the character pressedif it is definitely present place in html 
+                document.querySelector('.letter' + i).innerHTML = char;
+let a = document.querySelector('.alphabet');
+                for(let j = 0; j < a.length; j += 1){
+                   if( char[j] === a.value){
+                    document.querySelectorAll('.alphabet').style.visibility = 'hidden';     
+                    let b = document.querySelector('#abc');
+                        a.style.visibility = 'visible';
+                        b.appendChild(a);
+                   }
+                }
+            }  
     }
 });
 
-//run for loop to go through the alphabet class
 //check if guess is right
 //if right push to right append to new div
 //if wrong push to wrong empty div
