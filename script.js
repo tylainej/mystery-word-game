@@ -39,6 +39,7 @@ Phrase();
 function selectedLetter(clicked){
     let letters = clicked.innerHTML;
     let found = chosenWord.indexOf(letters);
+    // console.log("letters: ",letters, "clicked: ",clicked,"found: ", found);
     for(let i = 0; i < chosenWord.length; i += 1){
         if(clicked[i] === chosenWord[found]){
             clicked.style.visibility = 'hidden';     
