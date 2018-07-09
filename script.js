@@ -1,8 +1,9 @@
+//onload open modal to start game
 function startGame(){
  document.querySelector('#outsideModal').style.display = 'flex';
 
 };
-
+//closing event listener for onload modal
 document.querySelector('#closure').addEventListener('click', (evt)=>{
     document.querySelector('#outsideModal').style.display = 'none';
 
