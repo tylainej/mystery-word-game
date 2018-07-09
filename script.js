@@ -2,7 +2,7 @@
   /* eslint-env browser */
   // hide selected letter and appends the alphabet to a new div
   function Phrase(chosenWord, randomWord) {
-    for (let i = 0; i < chosenWord.length; i += 1) {
+    const divArray = chosenWord.split('').map((letter, i) => {
       const div = document.createElement('div');
       // creates a div for each letter
       div.className = `letter${i}`;
@@ -11,8 +11,15 @@
       div.style.padding = '5px';
       div.style.margin = '5px';
       div.style.background = 'navy';
+      
+      // append to the dom
       randomWord.appendChild(div);
-    }
+      return div;
+    });
+
+
+    return divArray;
+    
   }
 
   function selectedLetter(clicked) {
@@ -21,13 +28,8 @@
     // console.log("letters: ",letters, "clicked: ",clicked,"found: ", found);
     for (let i = 0; i < chosenWord.length; i += 1) {
       if (clicked[i] === chosenWord[found]) {
-        clicked.style.visibility = 'hidden';
-        const b = document.querySelector('#abc');
-        clicked.style.visibility = 'visible';
-        b.appendChild(clicked);
-      } else {
-        clicked.style.visibility = 'hidden';
-      }
+        
+      } 
       if (found >= 0) {
         document.querySelector(`.letter${i}`).innerHTML = letters;
       }
@@ -49,26 +51,37 @@
     }
 
     // let's create a RE based on the chosen letter
-    const re = new RegExp(char,'g'); 
-    let found;
+    const re1 = new RegExp(char,'g'); 
+    const re2 = new RegExp(char,'g'); 
+
+    let found = re1.test(chosenWord);
+    
+    if (found) {
+      // move the letter button
+      evt.srcElement.style.visibility = 'hidden';
+      debugger;
+    }else {
+      evt.srcElement.style.visibility = 'hidden';
+      const b = document.querySelector('#abc');
+      evt.srcElement.style.visibility = 'visible';
+      b.appendChild(evt.srcElement);
+    }
 
     // every time re.exec is run, 
     // the NEXT position of the found letter is returned
-    while(found = re.exec(chosenWord)) {
+    while(found = re2.exec(chosenWord)) {
       randomWordLetters[found.index].innerHTML = char;
     }
-
 
     return;
     
   }
 
   // onload open modal to start game
-  function startGame() {
+  function startGame(outsideModal) {
     // todo: move styles into css
-    document.querySelector('#outsideModal').style.display = 'flex';
+    outsideModal.style.display = 'flex';
   }
-document.querySelector('#closure').addEventListener('click',)
 
 
   /*    -------- START GAME -------     */
@@ -83,33 +96,46 @@ document.querySelector('#closure').addEventListener('click',)
   // DOM ELEMENTS
   const letterButtonsContainer = document.querySelector('#clue');
   const randomWord = document.querySelector('#randomWord');
-  const randomWordLetters = document.querySelectorAll('#randomWord>div');
+  
+  const closeButton = document.querySelector('#closure');
+  const outsideModal = document.querySelector('#outsideModal');
+    //closing event listener for onload modal
+
   const allowedChars = /^[A-Z]$/;
 
-  startGame();
-  Phrase(chosenWord, randomWord);
+  startGame(outsideModal);
   
   
-
-
-  debugger;
-
-
-
+  // todo: make this less dependant on the Phrase function
+  const randomWordLetters = Phrase(chosenWord, randomWord);
+  
+ 
   
 
 
+
+
+
+  // EVENT LISTENERS!!
+
+  closeButton.addEventListener('click', (evt)=>{
+    outsideModal.style.display = 'none';
+  });
 
   document.addEventListener('keypress', (evt) => {
     // key presses have keycodes
-    const char = event.key.toUpperCase();
+    const char = evt.key.toUpperCase();
 
     tryLetter(evt, char);
   });
 
   letterButtonsContainer.addEventListener('click', (evt) => {
     // click events have button values
-    debugger;
+    if(evt.srcElement.className !== 'alphabet'){
+      return;
+    }
+    const char = evt.target.value.toUpperCase();
 
+    tryLetter(evt, char);
 
   });
