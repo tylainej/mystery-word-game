@@ -8,16 +8,23 @@
     <title>Mystery Word Game</title>
 
 </head>
-<body>
+<body onload="startGame()">
+        
+        <div id="outsideModal">
+            <div id="insideWindow">
+                <div id="closure">Start Game</div>
+            </div>
+        </div>
         <h1>Mystery Word Game</h1>
 
     <main id="gameBoard">
 
-        <div id="abc">
-            
-        </div>
+        
 
         <section>
+                <div id="abc">
+            
+                    </div>
 
             <div id="clue">
 <button class="alphabet" onclick="selectedLetter(this)" value="A">A</button>
@@ -52,24 +59,30 @@
             </div>
         
         
+        </section>
 
         <div id="underScore">
             <p id="randomWord"></p>
             <p id="bottomUnderScore"></p>
 
         </div>
-        </section>
     </main>
 
     <div id="twoButtons">
         <div type="button" id="button">
-            <strong><span>PLAY AGAIN</span></strong>
+            <strong>PLAY AGAIN</strong>
         </div>
 
         <DIV type="button" id="button2">
-            <strong><span>RESTART</span></strong>
+            <strong>RESTART</strong>
         </DIV>
     </div>
+<div id="winningModal">
+    <div id="youWon">
+        <div id="win">YOU SOLVED TODAY'S MYSTERY WORD!!!!</div>
+        <!-- <div id="close">+</div> -->
+    </div>
+</div>
     <script src="script.js"></script>
 </body>
 </html>
