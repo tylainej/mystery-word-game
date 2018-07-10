@@ -1,30 +1,29 @@
 
 *{
-    margin: 0 auto;
+  margin: 0 auto;
 }
 body{
-    background-color: black;
+  background-color: black;
 }
 #outsideModal{
-    height: 960px;
-    width: 100%;
-    position: absolute;
-    justify-content: center;
-    background-color: grey;
-    opacity: 1;
-    margin: 0;
+  height: 960px;
+  width: 100%;
+  position: absolute;
+  justify-content: center;
+  background-color: grey;
+  opacity: 1;
+  margin: 0;
 }
 #insideWindow{
-    height: 600px;
-    width: 700px;
-    position: relative;
-    display: flex; 
-    border: solid 3px white;
-    margin-top: 100px;
-    opacity: 1;
-    border-radius: 80px;
-    background-color: black;
-
+  height: 600px;
+  width: 700px;
+  position: relative;
+  display: flex; 
+  border: solid 3px white;
+  margin-top: 100px;
+  opacity: 1;
+  border-radius: 80px;
+  background-color: black;
 }
 #closure{
     font-size: 24pt;
@@ -190,26 +189,32 @@ p{
     background-color: navy;
 }
 #win{
-    font-size: 25pt;
-    color: white;
-    height: 200px;
-    width: 200px;
-    background-color: black;
-    padding: 55px 35px 25px 35px;
-    text-align: center;
-    margin-top: 180px;
-    border-radius: 60px;
-    box-shadow: 2px 3px 3px #eee;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 25pt;
+  color: white;
+  height: 200px;
+  width: 200px;
+  background-color: black;
+  padding: 55px 35px 25px 35px;
+  text-align: center;
+  margin-top: 180px;
+  border-radius: 60px;
+  box-shadow: 2px 3px 3px #eee;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 #win:click{
-    background-color: navy;
-    cursor: pointer;
+  background-color: navy;
+  cursor: pointer;
 }
 #close{
-    rotate: 45deg;
+  rotate: 45deg;
 }
-
+[class*=letter]{
+  display: inline;
+  Border-bottom: solid 3px white;
+  padding: 5px;
+  margin: 5px;
+  background: navy;
+}
 
 
 
