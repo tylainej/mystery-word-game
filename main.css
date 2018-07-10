@@ -155,6 +155,10 @@ p{
     font-size: 20pt;
     padding-top: 1%;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 #button2:hover{
     background-color: rgb(50, 187, 50);
     font-size: 22pt;
