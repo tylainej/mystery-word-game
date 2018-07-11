@@ -62,7 +62,7 @@ function startGame(outsideModal) {
 /*    -------- START GAME -------     */
 
 // array of words
-const words = ['Superfragilistic','Transformers', 'tuesday', 'wednesday', 'thursday', 'friday', 'monday', 'general', 'assembly'];
+const words = ['Supercalifragilistic','Transformers', 'Independence Day', 'Thor ragnarok', 'avengers', 'antman and the wasp', 'wednesday', 'general', 'assembly'];
 // choose word randomly
 const random = Math.floor(Math.random() * words.length);
 const chosenWord = words[random].toUpperCase();
