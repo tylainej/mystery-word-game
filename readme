@@ -12,7 +12,7 @@ got some help with it and was able to successfully allow the user letter to slow
 the word without giving away the whole word at the same time.
 
 ##ScreenShots
-![Alt Text](https://git.generalassemb.ly/tylainej/Mystery-Word-Game/blob/master/images/gamePage.png)
+![gamepage](https://user-images.githubusercontent.com/40297750/45501372-f923b880-b74e-11e8-832c-de7dac80989c.png)
 
 The user can click the the buttons on the screen to slowly reveal the word, if it's wrong
 the letter appends to an empty side div.
