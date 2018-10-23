@@ -18,7 +18,7 @@ the letter appends to an empty side div.
 
 **#Tech/Framework used**
 
-Javascript ES6 | Node.js  CSS3 | HTML5
+Javascript ES6 | Node.js | CSS3 | HTML5
 
 
 I did use a yaml eslint to clean up the code and make sure my code was presentable. I was also
