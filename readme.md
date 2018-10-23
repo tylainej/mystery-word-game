@@ -4,11 +4,10 @@
 **##Motivation**
 
 I chose this game because of my love for word puzzles and I thought
-this would be a game I could enjoy. I like that my game is a simple and basic word game and you can guess what
+this would be a game I could enjoy. I like that the game is simple and basic word game and you can guess what
 the word is, it's simple but addicting.
 
-I am happy that I got the words to the correct position using Reg Exp was new but I 
-got some help with it and was able to successfully allow the user letter to slowly reveal
+The words are positioned using Reg Exp and allow the users' selected letter to be revealed one by one
 the word without giving away the whole word at the same time.
 
 ##ScreenShots
@@ -18,6 +17,9 @@ The user can click the the buttons on the screen to slowly reveal the word, if i
 the letter appends to an empty side div.
 
 **#Tech/Framework used**
+
+Javascript ES6 | Node.js  CSS3 | HTML5
+
 
 I did use a yaml eslint to clean up the code and make sure my code was presentable. I was also
 taught how to order the JS page and make it look readable and more function for loading with the 
